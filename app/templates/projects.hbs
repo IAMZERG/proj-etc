@@ -1,0 +1,23 @@
+<div class="container">
+<div class="row">
+    <div class="col-xs-12 center"><h1>Projects</h1></div>
+</div>    
+<div class="row">
+<div class="col-md-4"><button class="btn btn-primary" {{action 'newProject'}}>New Project</button></div>
+<div class="col-md-8 hidden" id="new-input">{{input type='text' focus-out='setProjectName' insert-newline='setProjectName'}}<button {{action 'setProjectName'}} class="btn btn-info">Create</button></div>
+</div>
+<div class="row">
+    <div class="col-xs-4"><h4>Project Name</h4></div>
+    <div class="col-xs-3"><h4>Hours</h4></div>
+    <div class="col-xs-5"><h4>Start Date</h4></div>
+</div>
+{{#each model as |project|}}
+<div class="row project">
+    <div class="col-xs-3">{{#link-to 'project' project}}{{project.name}}{{/link-to}}</div>
+    <div class="col-xs-3"><p>{{project.totalHours}}</p></div>
+    <div class="col-xs-4"><p>{{project.startTime}}</p></div>
+    <div class="col-xs-1"><button {{action 'destroyProject' project}} class="btn btn-danger">Delete</button></div>
+</div>
+{{/each}}
+</div>
+

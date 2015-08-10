@@ -1,0 +1,39 @@
+<h3> Display time in: </h3><select {{action 'setDisplay'}}>
+<option value="seconds">Seconds</option>
+<option value="minutes">Minutes</option>
+<option value="hours">Hours</option>
+</select>
+<div {{bind-attr class=":timer started"}}>{{#if seconds}}{{totalTime}}{{/if}}{{#if minutes}}{{totalMinutes}}{{/if}}{{#if hours}}{{totalHours}}{{/if}}</div>
+<div class="time-controls">
+<div class="btn-group">
+<button type="button" class="btn btn-success" {{action "startClock" model on="click"}}>Start</button>
+<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="caret"></span>
+</button>
+<ul class="dropdown-menu">
+<li><a href="#">30 minutes</a></li>
+<li><a href="#">1 hour</a></li>
+<li><a href="#">2 hours</a></li>
+<li><a href="#">Other...</a></li>
+</ul>
+</div>
+<div class="btn-group">
+<button class="btn btn-danger" {{action 'stopClock' model}}>Stop</button>
+<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="caret"></span>
+</button>
+<ul class="dropdown-menu">
+<li><a href="#">Break</a></li>
+<li><a href="#">Lunch</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="#">Other...</a></li>
+</ul>
+</div>
+</div>
+<div class="container">
+        <div class="row">
+            <div class="col-xs-6"><strong>In:  </strong>{{startTime}}</div>
+            <div class="col-xs-6"><strong>Out:  </strong>{{stopTime}}</div>
+        </div>
+</div>
+{{yield}}

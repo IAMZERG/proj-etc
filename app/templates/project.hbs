@@ -1,0 +1,15 @@
+{{time-clock startTime=model.startTime stopTime=model.stopTime totalTime=model.totalTime stopClock="stop" startClock="start"}}
+<div class="container">
+<div class="row">
+        <div class="col-xs-12"><h1>Project:  {{model.name}}</h1></div>
+</div>
+</div>
+
+<div class="container">
+    <div class="row">
+        {{time-description description=model.description}}
+    </div>
+    <div class="row">
+        <button class="btn btn-default" {{action 'save'}}>Save Project</button>
+    </div>
+</div>
