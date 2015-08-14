@@ -76,13 +76,15 @@ export default Ember.Component.extend({
               stopClock: function (model) {
                        this.set('stopTime', new Date());
                        this.set('started', false);
-                       Ember.$('#gong').trigger('play');
                },
               setDisplay: function () {
                       var selectval = Ember.$('select').val();
                       this.set('display', selectval);
               },
               setAlarm: function (minutes) {
+                      if (!minutes) {
+                              minutes = prompt("Set an alarm for how many minutes?");
+                      }
                       this.set('alarmTime', minutes );
                       this.send('startClock');
               }

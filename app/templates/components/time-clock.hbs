@@ -13,11 +13,16 @@
 <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 <span class="caret"></span>
 </button>
+
 <ul class="dropdown-menu">
+<li class="dropdown-header">Set an Alarm</li>
 <li><a href="#" {{action "setAlarm" 30}}>30 minutes</a></li>
 <li><a href="#" {{action "setAlarm" 60}}>1 hour</a></li>
 <li><a href="#" {{action "setAlarm" 120}}>2 hours</a></li>
+<li class="divider" role="separator"></li>
+<li><a href="#" {{action "setAlarm"}}>Custom</a></li>
 </ul>
+
 </div>
 <div class="btn-group">
 <button class="btn btn-danger" {{action 'stopClock' model}}>Stop</button>
