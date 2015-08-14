@@ -1,3 +1,4 @@
+<img class="logo center" src="/assets/projetc_logo.svg" alt="Projetc Logo">
 {{time-clock startTime=model.startTime stopTime=model.stopTime totalTime=model.totalTime stopClock="stop" startClock="start"}}
 <div class="container">
 <div class="row">
@@ -7,9 +8,9 @@
 
 <div class="container">
     <div class="row">
-        {{time-description description=model.description}}
+        {{time-description description=model.description savemodel="save" }}
     </div>
     <div class="row">
-        <button class="btn btn-default" {{action 'save'}}>Save Project</button>
+        <div class="col-xs-12"><button class="btn btn-default" {{action 'save'}}>Save Project</button></div>
     </div>
 </div>

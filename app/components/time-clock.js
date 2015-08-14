@@ -27,6 +27,7 @@ export default Ember.Component.extend({
 
        totalSeconds: 0,
        description: 'something nice I am working on',
+       alarmTime: null,
        totalMinutes: function () {
       
                return parseInt(this.get('totalTime')/60);
@@ -38,6 +39,10 @@ export default Ember.Component.extend({
                var date = new Date();
                return date.toString();
        }.property('tick'),
+       alarm: function () {
+               return this.get('alarmTime') === this.get('totalMinutes');
+       }.property('totalMinutes'),
+
 
        tick: function() {
                var interval= 1000;
@@ -49,6 +54,10 @@ export default Ember.Component.extend({
                                this.notifyPropertyChange('totalTime');
                                this.notifyPropertyChange('totalMinutes');
                                this.notifyPropertyChange('totalHours');
+
+                               if (this.get('alarm')) {
+                                       Ember.$("#gong").trigger('play');
+                               }
                                  
                                this.tick();
                        }
@@ -67,12 +76,16 @@ export default Ember.Component.extend({
               stopClock: function (model) {
                        this.set('stopTime', new Date());
                        this.set('started', false);
+                       Ember.$('#gong').trigger('play');
                },
               setDisplay: function () {
                       var selectval = Ember.$('select').val();
                       this.set('display', selectval);
+              },
+              setAlarm: function (minutes) {
+                      this.set('alarmTime', minutes );
+                      this.send('startClock');
               }
-
        }  
 
 });

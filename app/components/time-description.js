@@ -8,7 +8,7 @@ export default Ember.Component.extend({
                        this.set('isEditing', false);
                        var desc = this.get('description');
                        console.log(desc);
-                       this.sendAction('setDescription', desc);
+                       this.sendAction('savemodel');
                },
                editDesc: function () {
                        this.set('isEditing', true);

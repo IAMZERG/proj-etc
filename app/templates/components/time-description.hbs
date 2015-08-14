@@ -1,7 +1,4 @@
-<h4>Description</h4>
-{{#if isEditing}}
-{{textarea class="description" value=description autofocus=true}}
-<button {{action 'saveDesc'}} class="btn btn-default">Done</button>
-{{else}}
-<pre {{action 'editDesc' on="click"}} class="description">{{description}}</pre>
-{{/if}}
+<div class="container">
+<div class="row"><div class="col-xs-12"><h4>Description</h4></div></div>
+<div class="row"><div class="col-xs-12">{{textarea class="description" value=description focus-out="saveDesc" }}</div></div>
+</div>

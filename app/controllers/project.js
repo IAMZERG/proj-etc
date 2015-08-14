@@ -6,7 +6,6 @@ export default Ember.Controller.extend({
                         var totaltime = this.model.get('totalTime');
                         this.model.save();
                         console.log('save action on project route called');
-                        this.transitionToRoute('projects');
                 }
         }
 });

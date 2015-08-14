@@ -1,3 +1,14 @@
+/*Colors used in Logo:
+ *
+ * #550000 is the rust color
+ * #999999 is the gray in the letters
+ * the black is black. nothing special
+ */
+
+.logo {
+        height: 100px;
+        padding: 1%;
+}
 .timer {
         width: 500px;
         height: 250px;
@@ -14,21 +25,26 @@
         float: right;
 }
 .desc {
-        background-color: #ccc; 
+        background-color: #999999; 
         padding: 5%;
         border-radius: 10px;
 }
+
+/*time-controls are the start/stop buttons*/
 .time-controls {
+        padding: 1% 0 1% 0;
         margin-right: auto;
         margin-left: auto;
         width: 200px;
 }
 .description {
+        background-color: #eee; 
         height: 300px;
         width: 100%;
         padding: 1%;
         border: 1px solid black;
         box-shadow: 5px 5px 5px;
+        font-family: 'monospace';
 }
 .is-editing {
         background: white;
@@ -61,3 +77,4 @@
 .started {
         color: #0a4;
 }
+
