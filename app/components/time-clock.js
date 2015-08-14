@@ -40,8 +40,9 @@ export default Ember.Component.extend({
                return date.toString();
        }.property('tick'),
        alarm: function () {
-               return this.get('alarmTime') === this.get('totalMinutes');
-       }.property('totalMinutes'),
+               console.log(this.get('alarmTime') <= this.get('totalMinutes'));
+               return (this.get('alarmTime') <= this.get('totalMinutes'));
+       }.property('totalTime'),
 
 
        tick: function() {
@@ -83,9 +84,11 @@ export default Ember.Component.extend({
               },
               setAlarm: function (minutes) {
                       if (!minutes) {
+                              console.log(minutes);
                               minutes = prompt("Set an alarm for how many minutes?");
                       }
-                      this.set('alarmTime', minutes );
+                      console.log(typeof(parseInt(minutes)));
+                      this.set('alarmTime', parseInt(minutes) );
                       this.send('startClock');
               }
        }  
