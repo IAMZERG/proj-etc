@@ -77,4 +77,25 @@
 .started {
         color: #0a4;
 }
+/* style for calendar 'week/month/year' buttons */
+.calendar-button {
+        color: #550000;
+        background: #ccc;
+        padding: 10px;
+        margin: 1%;
+        transition: 0.2s;
+        border-style: none;
+}
+.calendar-button:hover {
+        color: #770000;
+        background: #999;
+        transition: 0.5s;
 
+}
+.calendar-menu {
+        padding-top: 1%;
+}
+.cal-proj-container {
+        padding: 0 2% 0 2%;
+        border-right: 5px solid #550000;
+}

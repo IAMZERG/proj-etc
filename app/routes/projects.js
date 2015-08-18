@@ -30,8 +30,4 @@ export default Ember.Route.extend({
 
 
         }
-                 //action to create new work-hour and transition to that route
-                 //
-                 //action to handle click on button in jumbotron
-                 //
 });

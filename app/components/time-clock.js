@@ -28,6 +28,7 @@ export default Ember.Component.extend({
        totalSeconds: 0,
        description: 'something nice I am working on',
        alarmTime: null,
+       alarmSeconds: 0,
        totalMinutes: function () {
       
                return parseInt(this.get('totalTime')/60);
@@ -40,8 +41,12 @@ export default Ember.Component.extend({
                return date.toString();
        }.property('tick'),
        alarm: function () {
-               console.log(this.get('alarmTime') <= this.get('totalMinutes'));
-               return (this.get('alarmTime') <= this.get('totalMinutes'));
+               if (this.get('alarmTime')) {
+                       console.log(this.get('alarmTime') <= this.get('alarmSeconds')/60);
+                       return this.get('alarmTime') <= this.get('alarmSeconds')/60;
+               } else {
+                       return false;
+               }
        }.property('totalTime'),
 
 
@@ -49,8 +54,8 @@ export default Ember.Component.extend({
                var interval= 1000;
                Ember.run.later(this, function () {
                        if( this.get('started') ) {
-                               var time = this.get('totalTime');
-                               this.set('totalTime', time+1);
+                               this.incrementProperty('totalTime');
+                               this.incrementProperty('alarmSeconds');
                                this.notifyPropertyChange('currentTime');
                                this.notifyPropertyChange('totalTime');
                                this.notifyPropertyChange('totalMinutes');
@@ -76,7 +81,10 @@ export default Ember.Component.extend({
               },
               stopClock: function (model) {
                        this.set('stopTime', new Date());
+                       this.set('alarmSeconds', 0);
                        this.set('started', false);
+                       $('#gong').trigger('pause').prop('currentTime', 0);
+                       this.sendAction('savemodel');
                },
               setDisplay: function () {
                       var selectval = Ember.$('select').val();
