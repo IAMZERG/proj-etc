@@ -1,15 +1,11 @@
-<div class="container">
-    <div class="row calendar-menu">
-        <div class="col-md-6"><h1>Calendar</h1></div>
-        <div class="col-md-2"><button class="calendar-button" {{action "show" "week"}}>Week</button></div>
-        <div class="col-md-2"><button class="calendar-button" {{action "show" "month"}}>Month</button></div>
-        <div class="col-md-2"><button class="calendar-button" {{action "show" "year"}}>Year</button></div>
-    </div>
-</div>
-<div class="left cal-proj-container">
+<img class="logo" src="/assets/projetc_logo.svg" alt="Projetc Logo">
+<h1>Calendar</h1>
+<div class="cal-proj-container left">{{calendar-projects model=model}}</div>
+<div>
+<ul>
 {{#each model as |project|}}
-    <div class="checkbox"><label><input type="checkbox" {{bind-attr "checked" checked}} name={{project.name}} >{{project.name}}</label></div>
+<li class="calendar-project">{{#link-to "project" project}}{{project.name}}{{/link-to}}</li>
 {{/each}}
+</ul>
 </div>
 
-{{outlet}}

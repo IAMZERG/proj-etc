@@ -1,5 +1,6 @@
 import DS from 'ember-data';
 
 export default DS.LSAdapter.extend({
-        namespace: 'proj-etc-app'
+        namespace: 'proj-etc-app',
+       shouldReloadAll: function () {return false;}
 });

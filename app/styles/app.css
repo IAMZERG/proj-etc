@@ -9,6 +9,9 @@
         height: 100px;
         padding: 1%;
 }
+h1 {
+        padding: 2%;
+}
 .timer {
         width: 500px;
         height: 250px;
@@ -96,6 +99,18 @@
         padding-top: 1%;
 }
 .cal-proj-container {
-        padding: 0 2% 0 2%;
-        border-right: 5px solid #550000;
+        padding: 0 5% 0 10%;
+        width: 50%;
+}
+.calendar-project {
+        padding: 5px 0 0 5%;
+        list-style: none;
+}
+.day {
+        list-style: none;
+        color: #999;
+        font-size: 2em;
+}
+.day-active {
+        font-weight: 700;
 }

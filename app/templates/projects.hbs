@@ -9,13 +9,13 @@
 <div class="row">
     <div class="col-xs-4"><h4>Project Name</h4></div>
     <div class="col-xs-3"><h4>Hours</h4></div>
-    <div class="col-xs-5"><h4>Start Date</h4></div>
+    <div class="col-xs-5"><h4>Due Date</h4></div>
 </div>
 {{#each model as |project|}}
 <div class="row project">
-    <div class="col-xs-3">{{#link-to 'project' project}}{{project.name}}{{/link-to}}</div>
+    <div class="col-xs-4">{{#link-to 'project' project}}{{project.name}}{{/link-to}}</div>
     <div class="col-xs-3"><p>{{project.totalHours}}</p></div>
-    <div class="col-xs-4"><p>{{project.startTime}}</p></div>
+    <div class="col-xs-4"><p>{{project.dueFromNow}}</p></div>
     <div class="col-xs-1"><button {{action 'destroyProject' project}} class="btn btn-danger">Delete</button></div>
 </div>
 {{/each}}
