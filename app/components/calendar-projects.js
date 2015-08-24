@@ -42,12 +42,13 @@ export default Ember.Component.extend({
        didInsertElement: function() {
                var outerscope = this; 
                this.get('week').forEach(function(day, index) {
+                       console.log(index);
                        outerscope.get('model').forEach(function(project) {
-                               console.log(day._d.toString() === project.get('dueDate').toString());
-
                                if(project.get('dueDate').toString() === day._d.toString()) {
-                                       $("."+index).append("<li>"+project.get('name')+"</li>");
+                                       $("."+index+".day").append("<li>"+project.get('name')+"</li>");
                                }
+                               var today = new Date().getDay();
+                               $("."+today).addClass("day-active");
                        });
                });
        }

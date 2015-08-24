@@ -1,15 +1,12 @@
 <div class="container">
 <div class="row">
-    <div class="col-xs-12 center"><img class="logo" src="/assets/projetc_logo.svg" alt="Projetc Logo"></div>
+    <div class="col-xs-10"><img class="logo" src="/assets/projetc_logo.svg" alt="Projetc Logo"></div>
+    <div class="col-xs-2 top-padding"><a class="btn btn-info">{{#link-to 'calendar'}}Calendar{{/link-to}}</a></div>
 </div>    
-<div class="row">
-<div class="col-md-4"><button class="btn btn-primary" {{action 'newProject'}}>New Project</button></div>
-<div class="col-md-8 hidden" id="new-input">{{input type='text' focus-out='setProjectName' insert-newline='setProjectName'}}<button {{action 'setProjectName'}} class="btn btn-info">Create</button></div>
-</div>
 <div class="row">
     <div class="col-xs-4"><h4>Project Name</h4></div>
     <div class="col-xs-3"><h4>Hours</h4></div>
-    <div class="col-xs-5"><h4>Due Date</h4></div>
+    <div class="col-xs-5"><h4>Due:</h4></div>
 </div>
 {{#each model as |project|}}
 <div class="row project">
@@ -19,5 +16,10 @@
     <div class="col-xs-1"><button {{action 'destroyProject' project}} class="btn btn-danger">Delete</button></div>
 </div>
 {{/each}}
+<div class="row top-padding">
+<div class="col-md-4"><button class="btn btn-primary" {{action 'newProject'}}>New Project</button></div>
+<div class="col-md-8 hidden" id="new-input">{{input type='text' focus-out='setProjectName' insert-newline='setProjectName'}}<button {{action 'setProjectName'}} class="btn btn-info">Create</button></div>
+</div>
+
 </div>
 

@@ -2,6 +2,7 @@
 <h1>Calendar</h1>
 <div class="cal-proj-container left">{{calendar-projects model=model}}</div>
 <div>
+<h3>Projects</h3>
 <ul>
 {{#each model as |project|}}
 <li class="calendar-project">{{#link-to "project" project}}{{project.name}}{{/link-to}}</li>
