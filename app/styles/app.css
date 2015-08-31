@@ -4,6 +4,9 @@
  * #999999 is the gray in the letters
  * the black is black. nothing special
  */
+body {
+        background: #000;
+}
 
 .logo {
         height: 100px;
