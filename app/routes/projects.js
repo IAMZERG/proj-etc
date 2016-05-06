@@ -14,7 +14,8 @@ export default Ember.Route.extend({
                        Ember.$('#new-input input').focus();
                 },
                 setProjectName: function () {
-                        var newproject = this.store.createRecord('project', {name: Ember.$('#new-input input').val()});
+                        var projname = Ember.$('#new-input input').val() || "New Project";
+                        var newproject = this.store.createRecord('project', {name: projname});
                         console.log("setProjectName triggered!");
                         newproject.save(); 
                         this.transitionTo('project', newproject.get('id'));
