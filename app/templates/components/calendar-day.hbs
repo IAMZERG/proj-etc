@@ -1,0 +1,14 @@
+<!-- For month view, will show dot where there are items due. -->
+<!-- For week view, will show title of item -->
+<!-- For day view, will show title and abbreviated description -->
+<!-- usage: {{calendar-day view=view projects=projects}} -->
+{{#if view "month"}}
+    <td data-projects-due="{{projects.count}}">{{projects.count}}</td>
+{{/if}}
+
+{{#if view "week"}}
+    {{#each projects as |project|}}
+        <td>{{project.name}}</td>
+    {{/each}}
+{{/if}}
+{{yield}}

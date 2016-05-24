@@ -18,8 +18,8 @@ export default Ember.Route.extend({
                         var newproject = this.store.createRecord('project', {name: projname});
                         console.log("setProjectName triggered!");
                         newproject.save(); 
-                        this.transitionTo('project', newproject.get('id'));
-                        Ember.$('#new-input').attr('class', 'hidden');
+                        //this.transitionTo('project', newproject.get('id'));
+                        $('#new-input').attr('class', 'hidden');
                 },
                 destroyProject: function (object) {
                         var confirmation = confirm("Are You sure you want to delete '" + object.get('name') + "'?");

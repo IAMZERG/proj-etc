@@ -6,3 +6,13 @@
     </div>
 {{/each}}
 
+
+{{#each filteredModel("month") as |day index|}}
+<table>
+{{calendar-day view="month"}}
+</table>
+{{/each}}
+
+
+
+

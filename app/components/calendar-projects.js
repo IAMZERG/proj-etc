@@ -23,21 +23,38 @@ export default Ember.Component.extend({
 
                ];
        }.property('endWeek'),
-       filteredModel: function () {
+       filteredModel: function (view) {
                var modelfiltered = [];
+               var filteredprojects = [];
+               switch (view) {
+                       case "month":
+                               var daysInMonth = moment().startOf('month').duration('month').days();
+                               for (var i=0; i < daysInMonth; i++) {
+                                       filteredprojects.append([]);
+                               }
+                               //filteredprojects - array with projects on days of the month/week they are due 
+                               this.get('model').forEach(function(item) {
+                                      if (moment(item.dueDate).isBetween(moment.startOf('month'), moment.endOf('month'))) {
+                                              filteredprojects[item.dueDate.format('day')].push(item);
+                                      }
+
+                               });
+                                break;
+
+               }
                modelfiltered = this.get('week').forEach(function(item, index) {
                        modelfiltered.push([]);
                        this.get('model').forEach(function(modelItem) {
 
-                               if(modelItem.get('dueDate') === item) {
+                               if (modelItem.get('dueDate') === item) {
                                        modelfiltered[index].push(modelItem);
                                }
 
                        });
 
                });
-               return modelfiltered;
-       }.property('week'),
+               return filteredprojects;
+       },
 
        didInsertElement: function() {
                var outerscope = this; 
